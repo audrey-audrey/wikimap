@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css"/>
+    <title> Midterm App </title>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- External JS -->
+    <script src="https://kit.fontawesome.com/2f9fa96ce3.js" crossorigin="anonymous"></script>
+    <script src = "/scripts/map.js"></script>
+    <script src = "/scripts/edit.js"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly"
+    defer>
+    </script>
+
+  </head>
+
+  <body>
+    <!-- Page-specific (main) content here -->
+    <%- include('partials/_header') %>
+    <main class="container">
+      <ul class="cards">
+        <% for(let map of maps) { %>
+        <li class="cards__item">
+          <div class="card">
+            <img src="<%=map.image%>"/>
+            <!-- <img src='https://unsplash.it/800/600?image=12'/> -->
+            <div class="card__content">
+              <div class="card__title"><%= map.mapname %></div>
+              <p class="card__text">Author: <%= map.username %></p>
+              <a href="/map/<%=map.id%>" class="btn btn-primary viewedit"> View/Edit </a>
+            </div>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </main>
+    </body>
+
+    </html>
