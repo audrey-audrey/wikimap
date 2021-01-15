@@ -49,26 +49,27 @@ module.exports = (db) => {
         console.error("Error", err);
       })
     } else{
-      const query = {
-        text: `
-        SELECT *
-        FROM maps
-        WHERE id = $1;`,
-        values: [req.params.mapID]
-      };
-      db.query(query)
-      .then(data => {
-        console.log('data', data);
-        const templateVars = {
-          maps: data.rows,
-          message: null,
-          mapTitle: data.rows[0].name,
-        }
-        return res.render('map', templateVars);
-      })
-      .catch(err => {
-        console.error("Error", err);
-      })
+      // const query = {
+      //   text: `
+      //   SELECT *
+      //   FROM maps
+      //   WHERE id = $1;`,
+      //   values: [req.params.mapID]
+      // };
+      // db.query(query)
+      // .then(data => {
+      //   console.log('data', data);
+      //   const templateVars = {
+      //     maps: data.rows,
+      //     message: null,
+      //     mapTitle: data.rows[0].name,
+      //   }
+      //   return res.render('map', templateVars);
+      // })
+      // .catch(err => {
+      //   console.error("Error", err);
+      // })
+      res.redirect("/login");
     }
   })
 
